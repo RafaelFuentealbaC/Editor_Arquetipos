@@ -1,0 +1,8 @@
+Credenciales Servidores
+1. Servidor: ra.inf.uct.cl
+2. Contraseña: ****************
+3. Usuario: rafael
+4. Puerto conexión: 22
+
+Aplicación:
+https://ra.inf.uct.cl/editor
