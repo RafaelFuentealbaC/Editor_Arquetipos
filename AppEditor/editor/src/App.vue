@@ -8,70 +8,40 @@
     >
       <v-list dense class="grey lighten-4">
 
-        <v-subheader>Arquetipos</v-subheader>
+        <!-- <v-subheader>Arquetipos</v-subheader> -->
         
-        <v-list-item @click="v-on">
+        <v-list-item v-for="link in links" :key="link.text" router :to="link.route">
           <v-list-item-action>
-            <v-icon large color="teal darken-2">mdi-newspaper</v-icon>
+            <v-icon large color="teal darken-2">{{ link.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Nuevo</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item @click="v-on">
-          <v-list-item-action>
-            <v-icon large color="teal darken-2">mdi-upload</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Cargar</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item @click="v-on">
-          <v-list-item-action>
-            <v-icon large color="teal darken-2">mdi-download</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Descargar</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item @click="v-on">
-          <v-list-item-action>
-            <v-icon large color="teal darken-2">mdi-eye</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Vista</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item @click="v-on">
-          <v-list-item-action>
-            <v-icon large color="teal darken-2">mdi-import</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Importar</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item @click="v-on">
-          <v-list-item-action>
-            <v-icon large color="teal darken-2">mdi-export</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Exportar</v-list-item-title>
+            <v-list-item-title>{{ link.text }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
 
-        <v-divider :inset="inset"></v-divider>
+        <v-divider></v-divider>
 
-        <v-list-item @click="v-on">
+        <v-list-item v-for="link in linkfichas" :key="link.text" router :to="link.route">
+          <v-list-item-action>
+            <v-icon large color="teal darken-2">{{ link.icon }}</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>{{ link.text }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <!-- <v-list-item >
           <v-list-item-action>
             <v-icon large color="teal darken-2">mdi-exit-to-app</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>Salir</v-list-item-title>
           </v-list-item-content>
-        </v-list-item>
+        </v-list-item> -->
 
       </v-list>
     </v-navigation-drawer>
+    
 
     <v-app-bar
       app
@@ -102,11 +72,11 @@
     </v-app-bar>
 
     <v-content fluid class="grey lighten-2 fill-height">
-      
+      <router-view></router-view>
     </v-content>
 
     <v-footer app>
-      <span>&copy; UCT 2019</span>
+      <span>&copy; Function Alpha, UCT 2019</span>
     </v-footer>
   </v-app>
 </template>
@@ -118,6 +88,18 @@
     },
     data: () => ({
       drawer: null,
+      links: [
+        { icon:'mdi-newspaper', text:'Nuevo', route:'/nuevo'},
+        { icon:'mdi-upload', text:'Cargar', route:'/cargar'},
+        { icon:'mdi-download', text:'Descargar', route:'/descargar'},
+        { icon:'mdi-eye', text:'Vista', route:'/vista'},
+        { icon:'mdi-import', text:'Importar', route:'/importar'},
+        { icon:'mdi-export', text:'Exportar', route:'/exportar'},
+      ],
+
+      linkfichas: [
+        { icon:'mdi-newspaper', text:'Fichas Clínicas', route:'/fichas' }
+      ]
     }),
     created () {
       //this.$vuetify.theme.dark = false
