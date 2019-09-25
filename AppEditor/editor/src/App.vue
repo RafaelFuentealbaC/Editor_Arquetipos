@@ -79,6 +79,9 @@
       <span>&copy; Function Alpha, UCT 2019</span>
     </v-footer>
   </v-app>
+
+
+  
 </template>
 
 <script>
@@ -104,5 +107,6 @@
     created () {
       //this.$vuetify.theme.dark = false
     },
+    
   }
 </script>

@@ -4,9 +4,15 @@ import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify';
 import VueRouter from 'vue-router';
+import VueDraggable from 'vue-draggable'
+import 'vue-draggable/polyfills'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+import JSONView from "vue-json-component";
 
 Vue.config.productionTip = false
-Vue.use(VueRouter);
+Vue.use(VueRouter,VueAxios, axios,JSONView, VueDraggable);
 
 
 new Vue({
