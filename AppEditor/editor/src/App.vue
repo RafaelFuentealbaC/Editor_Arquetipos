@@ -56,13 +56,7 @@
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <span class="hidden-sm-and-down">Editor</span>
       </v-toolbar-title>
-      <v-text-field
-        flat
-        solo-inverted
-        hide-details
-        label="Buscar"
-        class="hidden-sm-and-down"
-      ></v-text-field>
+     
       
       <div class="flex-grow-1"></div>
       <v-btn icon>
@@ -79,9 +73,6 @@
       <span>&copy; Function Alpha, UCT 2019</span>
     </v-footer>
   </v-app>
-
-
-  
 </template>
 
 <script>
@@ -107,6 +98,5 @@
     created () {
       //this.$vuetify.theme.dark = false
     },
-    
   }
 </script>
