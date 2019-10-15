@@ -2,7 +2,7 @@
 const{ Router } = require('express');
 const router = Router();
 
-// modulo faker para extraer datos de prueba
+// modulo faker para extraer datos de prueba, biblioteca de node
 const faker = require('faker');
 
 // enlazo el modelo arquetipos para guardar datos
@@ -10,16 +10,17 @@ const Arquetipo = require('../models/arquetipos');
 
 // definimos las rutas
 router.get('/create', async(req, res) => {
-    //res.send('Crear arquetipos');
-    for(let i=0; i<100; i++){
-        // crea un nuevo dato dentro de la base de datos
-        await Arquetipo.create({
-            title: faker.name.title(),
-            imageURL: faker.image.imageUrl(),
-            description: faker.lorem.paragraph()
-        })
-    }
-    res.send('100 registros creados');
+    fs = require('fs');
+    var parser = require('xml2json');
+
+    fs.readFile( 'src/test.xml', function(err, data) {
+        var json = parser.toJson(data);
+        console.log(json);
+     });
+});
+
+router.get('/nuevo', async(req, res) => {
+  res.render('nuevo');
 });
 
 router.get('/arquetipos', async(req, res) => {

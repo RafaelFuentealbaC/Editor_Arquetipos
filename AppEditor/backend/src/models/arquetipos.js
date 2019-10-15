@@ -1,9 +1,14 @@
 const { Schema, model } = require('mongoose');
 // permite definir los datos a guardar en mongodb, sus propiedades
 const ArquetipoSchema = new Schema({
-    title: String,
-    description: String,
-    imageURL: String
+    organizacion: String,
+    modelo: String,
+    clase: String,
+    concepto: String,
+    subconcepto: String,
+    lenguaje: String,
+    version: String
 })
 
-module.exports = model('Arquetipo', ArquetipoSchema);
+// crea una tabla arquetipo con la estructura anterior
+module.exports = model('arquetipo', ArquetipoSchema);
