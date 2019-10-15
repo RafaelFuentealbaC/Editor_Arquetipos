@@ -8,11 +8,15 @@ import VueDraggable from 'vue-draggable'
 import 'vue-draggable/polyfills'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-
+import VueDND from 'awe-dnd'
+import VueDragSelector from "vue-drag-selector";
 import JSONView from "vue-json-component";
+import VueNestable from 'vue-nestable'
+
+
 
 Vue.config.productionTip = false
-Vue.use(VueRouter,VueAxios, axios,JSONView, VueDraggable);
+Vue.use(VueRouter,VueAxios, axios,JSONView,VueNestable, VueDraggable,VueDND,VueDragSelector);
 
 
 new Vue({
@@ -21,3 +25,6 @@ new Vue({
   vuetify,
   render: h => h(App)
 }).$mount('#app')
+
+
+

@@ -14,6 +14,7 @@
   "main": "background.js",
   "dependencies": {
     "@shopify/draggable": "^1.0.0-beta.8",
+    "awe-dnd": "^0.3.4",
     "axios": "^0.19.0",
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
@@ -33,6 +34,7 @@
     "@vue/cli-service": "^3.11.0",
     "babel-eslint": "^10.0.1",
     "electron": "^6.0.0",
+    "electron-packager": "^14.0.6",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "sass": "^1.17.4",
