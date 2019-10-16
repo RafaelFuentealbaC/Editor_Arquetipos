@@ -18,10 +18,11 @@
 <!-- Informacion basica -->
     <div id="pac" class="col-sm-4">
       <h1 v-for="user of users">{{  }}</h1>
-      <p v-for="user of users">Otro: {{ user.description.other_details }} </p> 
-      <p v-for="user of users">Nombre: {{ user.is_controlled }} </p> 
-      <p v-for="user of users">Descripcion: {{ user.is_controlled }} </p> 
-      <p v-for="user of users">Como utilizar: {{ user.is_controlled }} </p> 
+      <p v-for="user of users">Nombre: {{ user.archetype_id.value}} </p> 
+      <p v-for="user of users">Autor: {{ user.description.original_author[1].$t }} </p> 
+      <p v-for="user of users">Proposito: {{ user.description.details[3].purpose }} </p> 
+      <p v-for="user of users">Como utilizar: {{ user.description.details[3].use }} </p> 
+      <p v-for="user of users">Como no utilizar: {{ user.description.details[3].misuse }} </p> 
     </div>
 
   </div>

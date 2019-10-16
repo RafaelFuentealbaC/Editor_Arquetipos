@@ -9,7 +9,7 @@
         class="hidden-sm-and-down"
       ></v-text-field>
     </div>
-    
+
 </template>
 
 <script>
