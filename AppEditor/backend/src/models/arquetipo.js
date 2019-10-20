@@ -8,7 +8,7 @@ const ArquetipoSchema = new Schema({
     subconcepto: String,
     lenguaje: String,
     version: String
-})
+});
 
 // crea una tabla arquetipo con la estructura anterior
 module.exports = model('arquetipo', ArquetipoSchema);

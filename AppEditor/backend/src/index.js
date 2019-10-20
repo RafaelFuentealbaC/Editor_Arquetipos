@@ -1,18 +1,25 @@
 const express = require('express');
+const morgan = require('morgan');
+const cors = require('cors');
 const app = express();
 
-// middleware's
-const cors = require('cors'); // middleware de express que comunica este servidor con el servidor de desarrollo
+// configuraciones
+app.set('port', process.env.PORT || 3000);
 
 require('./database'); // solicito la conexion a mongodb
 
-// modulo cors
-// cuando la aplicación inicie, antes de llegar a las rutas, se procesa datos con cors
-// esto para poder enviar datos entre servidores
-app.use(cors());
-app.use('/', require('./routes/index'));
+// middleware's
+app.use(cors()); //middleware de express que comunica este servidor con el servidor de desarrollo
+app.use(morgan('dev')); // muestra peticiones realizadas al backend por consola
+app.use(express.json()); // entiende información en formato json
+
+// rutas
+app.use('/api/arquetipos', require('./routes/arquetipos'));
+
+// archivos estáticos que se envían al frontend
+app.use(express.static(__dirname + '/public'));
 
 // inicia el servidor
-app.listen(3000, () => {
-    console.log('Server listen on port 3000');
+app.listen(app.get('port'), () => {
+    console.log('Server listen on port', app.get('port'));
 })
