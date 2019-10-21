@@ -6,6 +6,7 @@ const router = Router();
 const Arquetipo = require('../models/arquetipo');
 
 // definimos las rutas
+// obtiene todos los arquetipos
 router.get('/', async(req, res) => {
   const arquetipo = await Arquetipo.find();
   res.json(arquetipo);
@@ -33,6 +34,17 @@ router.delete('/:id', async(req, res) => {
   });
 });
 
+router.get('/nuevo', async(req, res) => {
+  const arquetipo = await Arquetipo.find().sort({$natural:-1}).limit(1);
+  res.json(arquetipo);
+});
+
+// obtiene un arquetipo según su id
+router.get('/:id', async(req, res) => {
+  const arquetipo = await Arquetipo.findById(req.params.id);
+  res.json(arquetipo);
+});
+
 router.get('/create', async(req, res) => {
     fs = require('fs');
     var parser = require('xml2json');
@@ -41,10 +53,6 @@ router.get('/create', async(req, res) => {
         var json = parser.toJson(data);
         console.log(json);
      });
-});
-
-router.get('/nuevo', async(req, res) => {
-  res.render('nuevo');
 });
 
 router.get('/arquetipo', async(req, res) => {
