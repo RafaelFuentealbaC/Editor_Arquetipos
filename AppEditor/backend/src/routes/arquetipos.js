@@ -6,6 +6,44 @@ const router = Router();
 const Arquetipo = require('../models/arquetipo');
 
 // definimos las rutas
+
+router.get('/create', async(req, res) => {
+  fs = require('fs');
+  var parser = require('xml2json');
+
+  fs.readFile('src/test.xml', function(err, data) {
+      var json = parser.toJson(data);
+      console.log(json);
+   });
+});
+
+router.post('/cargar', async(req, res) => {  
+  const arquetipo_data = new Arquetipo(req.body);
+  const arquetipo = new Arquetipo();
+  //res.json({
+    //status: 'Arquetipo guardado'
+  //});
+
+  const fs = require('fs');
+  if(arquetipo_data.data!='') {
+    fs.writeFile('src/tmp.xml', arquetipo_data.data, function(err) {
+      if(err) { return console.log(err); }
+      console.log('Archivo guardado!');
+    });
+  }
+
+  var parser = require('xml2json');
+
+  fs.readFile('src/tmp.xml', function(err, data) {
+    var json = parser.toJson(data);
+    arquetipo.data = json;
+    //console.log(arquetipo.data);
+    arquetipo.save();
+  });
+
+  res.json(arquetipo);
+});
+
 // obtiene todos los arquetipos
 router.get('/', async(req, res) => {
   const arquetipo = await Arquetipo.find();
@@ -43,16 +81,6 @@ router.get('/nuevo', async(req, res) => {
 router.get('/:id', async(req, res) => {
   const arquetipo = await Arquetipo.findById(req.params.id);
   res.json(arquetipo);
-});
-
-router.get('/create', async(req, res) => {
-    fs = require('fs');
-    var parser = require('xml2json');
-
-    fs.readFile( 'src/test.xml', function(err, data) {
-        var json = parser.toJson(data);
-        console.log(json);
-     });
 });
 
 router.get('/arquetipo', async(req, res) => {
