@@ -35,7 +35,7 @@
     <value>300195a1-9ade-4839-b9d0-11e0613f35cf</value>
   </uid>
   <archetype_id>
-    <value>openEHR-EHR-EVALUATION.alcohol_test.v0</value>
+    <value>openEHR-EHR-EVALUATION.alcohol_test-birth_weight.v0</value>
   </archetype_id>
   <adl_version>1.4</adl_version>
   <concept>at0000</concept>

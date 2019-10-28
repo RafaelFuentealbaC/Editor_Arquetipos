@@ -33,9 +33,6 @@
                                     <div class="form-group">
                                         <input type="text" v-model="arquetipo.subconcepto" placeholder="Sub concepto" class="form-control">
                                     </div>
-                                    <div class="form-group">
-                                        <input type="text" v-model="arquetipo.lenguaje" placeholder="Lenguaje" class="form-control">
-                                    </div>
                                     <fieldset disabled>
                                         <div class="form-group">
                                             <input type="text" v-model="arquetipo.version" id="disabledTextInput" class="form-control" placeholder="Versión 1">
@@ -69,7 +66,6 @@
                                         <th scope="col">Clase</th>
                                         <th scope="col">Concepto</th>
                                         <th scope="col">Subconcepto</th>
-                                        <th scope="col">Lenguaje</th>
                                         <th scope="col">Versión</th>
                                     </tr>
                                 </thead>
@@ -80,7 +76,6 @@
                                         <td>{{ arquetipo.clase }}</td>
                                         <td>{{ arquetipo.concepto }}</td>
                                         <td>{{ arquetipo.subconcepto }}</td>
-                                        <td>{{ arquetipo.lenguaje }}</td>
                                         <td>{{ arquetipo.version }}</td>
                                         <td>
                                             <button type="button" @click="actualizarArquetipo(arquetipo._id)" class="btn btn-secondary" style="margin-right:10px;">
@@ -103,14 +98,14 @@
 
 <script>
 class Arquetipo {
-    constructor(organizacion, modelo, clase, concepto, subconcepto, lenguaje) {
+    constructor(organizacion, modelo, clase, concepto, subconcepto) {
         this.organizacion = organizacion;
         this.modelo = modelo;
         this.clase = clase;
         this.concepto = concepto;
         this.subconcepto = subconcepto;
-        this.lenguaje = lenguaje;
         this.version = 'v1';
+        this.data = '';
     }
 }
 export default {
@@ -173,7 +168,7 @@ export default {
             fetch('http://localhost:3000/api/arquetipos/'+id)
                 .then(res => res.json())
                 .then(data => {
-                    this.arquetipo = new Arquetipo(data.organizacion, data.modelo, data.clase, data.concepto, data.subconcepto, data.lenguaje, data.version);
+                    this.arquetipo = new Arquetipo(data.organizacion, data.modelo, data.clase, data.concepto, data.subconcepto, data.version, data.data);
                     this.arquetipoAEditar = data._id;
                     this.edit = true;
                 });

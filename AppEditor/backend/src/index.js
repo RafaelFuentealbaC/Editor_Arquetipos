@@ -17,7 +17,7 @@ app.use(express.json()); // entiende información en formato json
 app.use('/api/arquetipos', require('./routes/arquetipos'));
 
 // archivos estáticos que se envían al frontend
-app.use(express.static(__dirname + '/public'));
+//app.use(express.static(__dirname + '/public'));
 
 // inicia el servidor
 app.listen(app.get('port'), () => {

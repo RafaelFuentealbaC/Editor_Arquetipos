@@ -17,12 +17,9 @@ router.get('/create', async(req, res) => {
    });
 });
 
-router.post('/cargar', async(req, res) => {  
+router.post('/converxml', async(req, res) => {  
   const arquetipo_data = new Arquetipo(req.body);
   const arquetipo = new Arquetipo();
-  //res.json({
-    //status: 'Arquetipo guardado'
-  //});
 
   const fs = require('fs');
   if(arquetipo_data.data!='') {
@@ -37,11 +34,13 @@ router.post('/cargar', async(req, res) => {
   fs.readFile('src/tmp.xml', function(err, data) {
     var json = parser.toJson(data);
     arquetipo.data = json;
-    //console.log(arquetipo.data);
-    arquetipo.save();
+    var myjson = JSON.parse(arquetipo.data);
+    res.json({
+      data: arquetipo.data,
+      identificador: myjson["archetype"]["archetype_id"].value
+    });
+    //arquetipo.save();
   });
-
-  res.json(arquetipo);
 });
 
 // obtiene todos los arquetipos
