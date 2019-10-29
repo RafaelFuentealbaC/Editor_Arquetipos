@@ -17,7 +17,7 @@ router.get('/create', async(req, res) => {
    });
 });
 
-router.post('/converxml', async(req, res) => {  
+router.post('/converxml', (req, res) => {  
   const arquetipo_data = new Arquetipo(req.body);
   const arquetipo = new Arquetipo();
 
@@ -39,7 +39,6 @@ router.post('/converxml', async(req, res) => {
       data: arquetipo.data,
       identificador: myjson["archetype"]["archetype_id"].value
     });
-    //arquetipo.save();
   });
 });
 
@@ -61,7 +60,7 @@ router.put('/:id', async(req, res) => {
   await Arquetipo.findByIdAndUpdate(req.params.id, req.body); //busca por id y actualiza
   res.json({
     status: 'Arquetipo actualizado'
-  });
+  });z
 });
 
 router.delete('/:id', async(req, res) => {

@@ -129,7 +129,7 @@ export default {
                 .then(data => {
                     this.arquetipos = data // datos de nuevo arquetipo
                     //console.log(this.arquetipos)
-                });
+            });
         },
 
         enviarArquetipo() {

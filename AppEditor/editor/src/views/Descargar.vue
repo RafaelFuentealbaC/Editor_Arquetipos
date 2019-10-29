@@ -1,11 +1,13 @@
 <template>
-    <div class="descargar">
-        <h1>Descargar arquetipo</h1>
-    </div>
+    <DescargarArquetipo />
 </template>
 
 <script>
+import DescargarArquetipo from '../components/DescargarArquetipo';
+
 export default {
-    
+    components: {
+        DescargarArquetipo
+    }
 }
 </script>
