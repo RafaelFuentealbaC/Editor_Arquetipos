@@ -120,7 +120,7 @@ export default {
                     this.arquetipo_data.data = this.info;
                     
                     if(this.arquetipo_data.data!='') {
-                        fetch('http://localhost:3000/api/arquetipos/converxml', {
+                        fetch('http://localhost:3000/api/arquetipos/converjson', {
                             method: 'POST',
                             body: JSON.stringify(this.arquetipo_data),
                             headers: {

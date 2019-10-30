@@ -19,12 +19,13 @@
                                     <div class="form-group">
                                         <select class="form-control custom-select" v-model="arquetipo.clase">
                                             <option selected>Seleccionar Clase</option>
-                                            <option>Cluster</option>
-                                            <option>Composition</option>
-                                            <option>Element</option>
-                                            <option>Entry</option>
-                                            <option>Folder</option>
-                                            <option>Section</option>
+                                            <option>CLUSTER</option>
+                                            <option>COMPOSITION</option>
+                                            <option>ELEMENT</option>
+                                            <option>ENTRY</option>
+                                            <option>EVALUATION</option>
+                                            <option>FOLDER</option>
+                                            <option>SECTION</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -52,45 +53,47 @@
                     </div>
                 </div>
 
-                <div class="col-md-9">
-                    <div class="card">
-                        <div class="card-header">
-                            <h6>Agregado:</h6>
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-bordered">
-                                <thead class="table-success">
-                                    <tr>
-                                        <th scope="col">Organización</th>
-                                        <th scope="col">Modelo</th>
-                                        <th scope="col">Clase</th>
-                                        <th scope="col">Concepto</th>
-                                        <th scope="col">Subconcepto</th>
-                                        <th scope="col">Versión</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr v-for="arquetipo of arquetipos" :key="arquetipo.id">
-                                        <td>{{ arquetipo.organizacion }}</td>
-                                        <td>{{ arquetipo.modelo }}</td>
-                                        <td>{{ arquetipo.clase }}</td>
-                                        <td>{{ arquetipo.concepto }}</td>
-                                        <td>{{ arquetipo.subconcepto }}</td>
-                                        <td>{{ arquetipo.version }}</td>
-                                        <td>
-                                            <button type="button" @click="actualizarArquetipo(arquetipo._id)" class="btn btn-secondary" style="margin-right:10px;">
-                                                <span class="mdi mdi-border-color"></span>
-                                            </button>
-                                            <button type="button" @click="eliminarArquetipo(arquetipo._id)" class="btn btn-danger">
-                                                <span class="mdi mdi-delete"></span>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                <template v-if="guardado==true">
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-header">
+                                <h6>Agregado:</h6>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead class="table-success">
+                                        <tr>
+                                            <th scope="col">Organización</th>
+                                            <th scope="col">Modelo</th>
+                                            <th scope="col">Clase</th>
+                                            <th scope="col">Concepto</th>
+                                            <th scope="col">Subconcepto</th>
+                                            <th scope="col">Versión</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="arquetipo of arquetipos" :key="arquetipo.id">
+                                            <td>{{ arquetipo.organizacion }}</td>
+                                            <td>{{ arquetipo.modelo }}</td>
+                                            <td>{{ arquetipo.clase }}</td>
+                                            <td>{{ arquetipo.concepto }}</td>
+                                            <td>{{ arquetipo.subconcepto }}</td>
+                                            <td>{{ arquetipo.version }}</td>
+                                            <td>
+                                                <button type="button" @click="actualizarArquetipo(arquetipo._id)" class="btn btn-secondary" style="margin-right:10px;">
+                                                    <span class="mdi mdi-border-color"></span>
+                                                </button>
+                                                <button type="button" @click="eliminarArquetipo(arquetipo._id)" class="btn btn-danger">
+                                                    <span class="mdi mdi-delete"></span>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </template>
             </div>
         </div>
     </div>
@@ -114,7 +117,8 @@ export default {
             arquetipo: new Arquetipo(),
             arquetipos: [], // se llena con datos de nuevo arquetipo
             edit: false, // verifica si está guardando o actualizando
-            arquetipoAEditar: '' // id de tarea a actualizar
+            arquetipoAEditar: '', // id de tarea a actualizar
+            guardado: false
         }
     },
 
@@ -144,7 +148,8 @@ export default {
                 })
                 .then(res => res.json())
                 .then(data => {
-                    this.obtenerArquetipos();
+                    this.guardado = true
+                    this.obtenerArquetipos()
                 })
             } else {
                 fetch('http://localhost:3000/api/arquetipos/'+this.arquetipoAEditar, {

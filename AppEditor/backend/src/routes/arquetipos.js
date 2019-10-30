@@ -17,7 +17,7 @@ router.get('/create', async(req, res) => {
    });
 });
 
-router.post('/converxml', (req, res) => {  
+router.post('/converjson', (req, res) => {  
   const arquetipo_data = new Arquetipo(req.body);
   const arquetipo = new Arquetipo();
 
@@ -33,6 +33,7 @@ router.post('/converxml', (req, res) => {
 
   fs.readFile('src/tmp.xml', function(err, data) {
     var json = parser.toJson(data);
+    console.log(json);
     arquetipo.data = json;
     var myjson = JSON.parse(arquetipo.data);
     res.json({
@@ -40,6 +41,27 @@ router.post('/converxml', (req, res) => {
       identificador: myjson["archetype"]["archetype_id"].value
     });
   });
+});
+
+router.get('/converxml/:id', async(req, res) => {  
+  const arquetipo = await Arquetipo.findById(req.params.id);
+
+  const fs = require('fs');
+  if(arquetipo.data!='') {
+    fs.writeFile('src/tmp.json', arquetipo.data, function(err) {
+      if(err) { return console.log(err); }  
+    });
+  }
+  res.json(arquetipo);
+});
+
+router.get('/recuperajson', async(req, res) => {
+  var xmljson = require('xml-js');
+  var json = require('fs').readFileSync('src/tmp.json', 'utf8');
+  var opciones = {compact: true, ignoreComment: true, spaces: 4};
+  var xml = xmljson.json2xml(json, opciones);
+
+  res.json(xml);
 });
 
 // obtiene todos los arquetipos
@@ -60,7 +82,7 @@ router.put('/:id', async(req, res) => {
   await Arquetipo.findByIdAndUpdate(req.params.id, req.body); //busca por id y actualiza
   res.json({
     status: 'Arquetipo actualizado'
-  });z
+  });
 });
 
 router.delete('/:id', async(req, res) => {
