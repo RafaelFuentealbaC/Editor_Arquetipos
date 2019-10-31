@@ -5,7 +5,7 @@
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
-                            Arquetipos Registrados:
+                            Buscar Arquetipos Registrados:
                         </div>
                         <div class="card body">
                             <div class="container">
@@ -27,15 +27,14 @@
                                     <thead class="table-success">
                                         <tr>
                                             <th scope="col">ID Arquetipo</th>
-                                            <th scope="col">JSON</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr v-for="arquetipo of aArquetipos" :key="arquetipo.id">
                                             <td>{{ arquetipo['arquetipo'] }}</td>
                                             <td>
-                                                <button type="button" @click="descargarJSON(arquetipo['id'])" class="btn btn-secondary" style="display:block; margin-left:auto; margin-right:auto;">
-                                                    <span class="mdi mdi-file-document-box"></span>
+                                                <button type="button" @click="verArquetipo(arquetipo['id'])" class="btn btn-secondary" style="display:block; margin-left:auto; margin-right:auto;">
+                                                    <span class="mdi mdi-eye"></span>
                                                 </button>
                                             </td>
                                         </tr>
@@ -47,11 +46,74 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Árbol de Arquetipo
+                        </div>
+                        <div class="card body">
+                            <div class="container">
+                                <ul id="menu"
+                                style=" #menu * { list-style:none;}
+                                        #menu li{ line-height:180%;}
+                                        #menu li a{color:#222; text-decoration:none;}
+                                        #menu li a:before{ content:'\025b8'; color:#ddd; margin-right:4px;}
+                                        #menu input[name='list'] {
+                                            position: absolute;
+                                            left: -1000em;
+                                            }
+                                        #menu label:before{ content:'\025b8'; margin-right:4px;}
+                                        #menu input:checked ~ label:before{ content:'\025be';}
+                                        #menu .interior{display: none;}
+                                        #menu input:checked ~ ul{display:block;}">
+                                    <li><input type="checkbox" name="list" id="nivel1-1"><label for="nivel1-1">Nivel 1</label>
+                                    <ul class="interior">
+                                            <li><input type="checkbox" name="list" id="nivel2-1"><label for="nivel2-1">Nivel 2</label>
+                                            <ul class="interior">
+                                                <li><a href="#r">Nivel 3</a></li>
+                                                <li><a href="#r">Nivel 3</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><input type="checkbox" name="list" id="nivel2-2"><label for="nivel2-2">Nivel 2</label>
+                                            <ul class="interior">
+                                                <li><a href="#r">Nivel 3</a></li>
+                                                <li><a href="#r">Nivel 3</a></li>
+                                                <li><a href="#r">Nivel 3</a></li>
+                                                <li><a href="#r">Nivel 3</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#r">Nivel 2</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><input type="checkbox" name="list" id="nivel1-2" checked=""><label for="nivel1-2">Nivel 1</label>
+                                        <ul class="interior">
+                                            <li><a href="#r">Nivel 2</a></li>
+                                            <li><input type="checkbox" name="list" id="nivel2-3"><label for="nivel2-3">Nivel 2</label>
+                                            <ul class="interior">
+                                                <li><a href="#r">Nivel 3</a></li>
+                                                <li><a href="#r">Nivel 3</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><input type="checkbox" name="list" id="nivel2-4"><label for="nivel2-4">Nivel 2</label>
+                                            <ul class="interior">
+                                                <li><a href="#r">Nivel 3</a></li>
+                                                <li><a href="#r">Nivel 3</a></li>
+                                                <li><a href="#r">Nivel 3</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#r">Nivel 1</a></li>
+                                    </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </template>
-
 <script>
 class Arquetipo {
     constructor(organizacion, modelo, clase, concepto, subconcepto, version, data) {
@@ -64,7 +126,6 @@ class Arquetipo {
         this.data = data;
     }
 }
-
 export default {
     data() {
         return {
@@ -80,40 +141,6 @@ export default {
             this.clase = e.target.value;
             while(this.aArquetipos.length>0) this.aArquetipos.pop();
             this.obtenerArquetipos();      
-        },
-
-        descargarArchivo(contenidoEnBlob, nombreArchivo) {
-            var reader = new FileReader();
-            reader.onload = function (event) {
-                var save = document.createElement('a');
-                save.href = event.target.result;
-                save.target = '_blank';
-                save.download = nombreArchivo || 'archivo.dat';
-                var clicEvent = new MouseEvent('click', {
-                    'view': window,
-                        'bubbles': true,
-                        'cancelable': true
-                });
-                save.dispatchEvent(clicEvent);
-                (window.URL || window.webkitURL).revokeObjectURL(save.href);
-            };
-            reader.readAsDataURL(contenidoEnBlob);
-        },
-
-        obtenerDatos() {
-            return {
-                nombre: document.getElementById('inlineFormCustomSelect').value
-            };
-        },
-
-        generarTexto(datos) {
-            var texto = [];
-            texto.push(datos);
-            //El contructor de Blob requiere un Array en el primer parámetro, y el segundo parámetro
-            //es el tipo MIME del archivo
-            return new Blob(texto, {
-                type: 'text/plain'
-            });
         },
 
         obtenerArquetipos() {
@@ -144,23 +171,9 @@ export default {
             });
         },
 
-        descargarJSON(id) {
-            fetch('http://localhost:3000/api/arquetipos/'+id)
-                .then(res => res.json())
-                .then(data => {
-                    this.arquetipo = new Arquetipo(data.organizacion, data.modelo, data.clase, data.concepto, data.subconcepto, data.version, data.data)
-                    var datos = this.arquetipo.data
-                    var id = '' 
-                    if(this.arquetipo.subconcepto != '') {
-                        this.id = this.arquetipo.organizacion.concat('-', this.arquetipo.modelo, '-', this.arquetipo.clase, '.', this.arquetipo.concepto, '-', this.arquetipo.subconcepto, '.', this.arquetipo.version)
-                        this.descargarArchivo(this.generarTexto(datos), this.id.concat('.json'))
-                    } else {
-                        this.id = this.arquetipo.organizacion.concat('-', this.arquetipo.modelo, '-', this.arquetipo.clase, '.', this.arquetipo.concepto, '.', this.arquetipo.version)
-                        this.descargarArchivo(this.generarTexto(datos), this.id.concat('.json'))
-                    }
-                });
-            this.arquetipo = '';
+        verArquetipo(id) {
+            
         }
-    }    
+    }
 }
 </script>

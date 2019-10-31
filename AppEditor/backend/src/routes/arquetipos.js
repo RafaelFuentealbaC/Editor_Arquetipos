@@ -13,7 +13,6 @@ router.get('/create', async(req, res) => {
 
   fs.readFile('src/test.xml', function(err, data) {
       var json = parser.toJson(data);
-      console.log(json);
    });
 });
 
@@ -33,7 +32,6 @@ router.post('/converjson', (req, res) => {
 
   fs.readFile('src/tmp.xml', function(err, data) {
     var json = parser.toJson(data);
-    console.log(json);
     arquetipo.data = json;
     var myjson = JSON.parse(arquetipo.data);
     res.json({
@@ -41,27 +39,6 @@ router.post('/converjson', (req, res) => {
       identificador: myjson["archetype"]["archetype_id"].value
     });
   });
-});
-
-router.get('/converxml/:id', async(req, res) => {  
-  const arquetipo = await Arquetipo.findById(req.params.id);
-
-  const fs = require('fs');
-  if(arquetipo.data!='') {
-    fs.writeFile('src/tmp.json', arquetipo.data, function(err) {
-      if(err) { return console.log(err); }  
-    });
-  }
-  res.json(arquetipo);
-});
-
-router.get('/recuperajson', async(req, res) => {
-  var xmljson = require('xml-js');
-  var json = require('fs').readFileSync('src/tmp.json', 'utf8');
-  var opciones = {compact: true, ignoreComment: true, spaces: 4};
-  var xml = xmljson.json2xml(json, opciones);
-
-  res.json(xml);
 });
 
 // obtiene todos los arquetipos

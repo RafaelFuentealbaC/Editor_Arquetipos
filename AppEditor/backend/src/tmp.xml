@@ -8,145 +8,16 @@
   </original_language>
   <is_controlled>false</is_controlled>
   <description>
-    <original_author id="date">2010-07-03</original_author>
-    <original_author id="name">Dr Ian McNicoll</original_author>
-    <original_author id="organisation">freshEHR Clinical Informatics, United Kingdom</original_author>
-    <original_author id="email">ian@freshEHR.com</original_author>
-    <other_contributors>Tomas Alme, DIPS, Norway</other_contributors>
-    <other_contributors>Magnus Alsaker, Helsedirektoratet, Norway</other_contributors>
-    <other_contributors>Vebjørn Arntzen, Oslo universitetssykehus HF, Norway (Nasjonal IKT redaktør)</other_contributors>
-    <other_contributors>Koray Atalag, University of Auckland, New Zealand</other_contributors>
-    <other_contributors>Gustavo Bacelar-Silva, Healthcare Designs, Brazil (openEHR Translation Editor)</other_contributors>
-    <other_contributors>Silje Bakke, Bergen Hospital Trust, Norway</other_contributors>
-    <other_contributors>Silje Ljosland Bakke, Nasjonal IKT HF, Norway (openEHR Editor)</other_contributors>
-    <other_contributors>Rong Chen, Cambio Healthcare Systems, Sweden</other_contributors>
-    <other_contributors>Stephen Chu, Queensland Health, Australia</other_contributors>
-    <other_contributors>Lisbeth Dahlhaug, Helse Midt - Norge IT, Norway</other_contributors>
-    <other_contributors>Einar Fosse, UNN HF, Norwegian Centre for Integrated Care and Telemedicine, Norway</other_contributors>
-    <other_contributors>Mikkel Gaup Grønmo, FSE, Helse Nord, Norway (Nasjonal IKT redaktør)</other_contributors>
-    <other_contributors>Carrick Gillespie, Omniq AB, Sweden</other_contributors>
-    <other_contributors>Susanna Jönsson, Landstinget i Värmland, Sweden</other_contributors>
-    <other_contributors>Konstantinos Kalliamvakos, Cambio Healthcare Systems, Sweden</other_contributors>
-    <other_contributors>Lars Karlsen, DIPS ASA, Norway</other_contributors>
-    <other_contributors>Lars Morgan Karlsen, DIPS ASA, Norway</other_contributors>
-    <other_contributors>Heather Leslie, Atomica Informatics, Australia (openEHR Editor)</other_contributors>
-    <other_contributors>Rikard Lovstrom, Swedish Medical Association, Sweden</other_contributors>
-    <other_contributors>Hallvard Lærum, Direktoratet for e-helse, Norway</other_contributors>
-    <other_contributors>Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (openEHR Editor)</other_contributors>
-    <other_contributors>Bjørn Næss, DIPS ASA, Norway</other_contributors>
-    <other_contributors>Jarl Sandberg, Tieto Sweden Healthcare &amp; Welfare AB, Sweden (openEHR Translation Editor)</other_contributors>
-    <other_contributors>Åsa Skagerhult, Region Östergötland, Sweden (openEHR Translation Editor)</other_contributors>
-    <other_contributors>Andreas Sundstrom, Capio S:t Gorans Hospital, Sweden</other_contributors>
-    <other_contributors>Erik Sundvall, Region Östergötland + Linköping University, Sweden</other_contributors>
-    <other_contributors>Line Sæle, Nasjonal IKT HF, Norway</other_contributors>
-    <other_contributors>John Tore Valand, Haukeland Universitetssjukehus, Norway (Nasjonal IKT redaktør)</other_contributors>
-    <lifecycle_state>published</lifecycle_state>
-    <other_details id="licence">This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.</other_details>
+    <original_author id="date">2019-08-13</original_author>
+    <lifecycle_state>in_development</lifecycle_state>
+    <other_details id="licence">This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.</other_details>
     <other_details id="custodian_organisation">openEHR Foundation</other_details>
-    <other_details id="current_contact">Ian McNicoll, freshEHR Clinical Informatics UK, ian@freshEHR.com</other_details>
     <other_details id="original_namespace">org.openehr</other_details>
     <other_details id="original_publisher">openEHR Foundation</other_details>
     <other_details id="custodian_namespace">org.openehr</other_details>
-    <other_details id="MD5-CAM-1.0.1">ADAD488D3CC144486612C75F4E995F94</other_details>
-    <other_details id="build_uid">b980bb02-d3cf-4624-9e98-ffc6a3a167c5</other_details>
-    <other_details id="revision">1.0.6</other_details>
-    <details>
-      <language>
-        <terminology_id>
-          <value>ISO_639-1</value>
-        </terminology_id>
-        <code_string>de</code_string>
-      </language>
-      <purpose>Eine generische Abschnittsüberschrift eines Templates, welche entsprechend dem spezifischen klinischen Kontext umbenannt werden sollte.</purpose>
-      <keywords>Abschnitt</keywords>
-      <keywords>Template</keywords>
-      <keywords>Überschrift</keywords>
-      <keywords>Ad hoc</keywords>
-      <keywords>Abschnittsüberschrift</keywords>
-      <use>Dieser Archetyp kann für die Erstellung einer Abschnittsüberschrift in einem Template verwendet werden. Die Überschrift kann, passend zu dem jeweiligen klinischen Kontext, umbenannt werden. Zum Beispiel: "Ad hoc Überschrift" wird umbenannt in "Untersuchungsergebnisse".&#xD;
-&#xD;
-</use>
-      <misuse>Die Überschrift sollte in einem Template nicht unverändert verwendet werden.</misuse>
-      <copyright />
-    </details>
-    <details>
-      <language>
-        <terminology_id>
-          <value>ISO_639-1</value>
-        </terminology_id>
-        <code_string>ru</code_string>
-      </language>
-      <purpose>Базовый заголовок раздела, должен быть переименован в локальном шаблоне </purpose>
-      <keywords>раздел</keywords>
-      <keywords>шаблон</keywords>
-      <keywords>заготовка</keywords>
-      <keywords>название</keywords>
-      <keywords>образец</keywords>
-      <use>используется для создания и именования разделов в локальных шаблонах</use>
-      <misuse>*Not to be left unchanged in a template.(en)</misuse>
-      <copyright>© openEHR Foundation</copyright>
-    </details>
-    <details>
-      <language>
-        <terminology_id>
-          <value>ISO_639-1</value>
-        </terminology_id>
-        <code_string>sv</code_string>
-      </language>
-      <purpose>En allmän avsnittsrubrik som döps om i en openEHR-mall för att passa in i en specifik klinisk kontext.</purpose>
-      <use>Används för att skapa en avsnittsrubrik i en openEHR-mall som sedan döps om för att passa in i den specifika kliniska kontexten. Exempelvis "Rubrik" döps om till "Undersökningsfynd".</use>
-      <misuse>Ska inte lämnas oförändrad i en openEHR-mall.</misuse>
-      <copyright />
-    </details>
-    <details>
-      <language>
-        <terminology_id>
-          <value>ISO_639-1</value>
-        </terminology_id>
-        <code_string>es-ar</code_string>
-      </language>
-      <purpose>Proporcionar un encabezado de sección de tipo genérico que será renombrado en una plantilla para su empleo en un contexto clínico específico.</purpose>
-      <use>Utilizar para construir un encabezado de sección en una plantilla y que será renombrado para su empleo en un contexto clínico específico. Por ejemplo, "Encabezado ad hoc" puede renombrarse como "Hallazgos de examen".</use>
-      <misuse>No debe mantenerse sin cambios en una plantilla.</misuse>
-      <copyright>© openEHR Foundation</copyright>
-    </details>
-    <details>
-      <language>
-        <terminology_id>
-          <value>ISO_639-1</value>
-        </terminology_id>
-        <code_string>nb</code_string>
-      </language>
-      <purpose>Brukes som en generisk seksjonsoverskrift som skal gis nytt navn i en templat for å passe i en gitt klinisk kontekst.</purpose>
-      <use>Brukes til å lage en seksjonsoverskrift i en templat, hvis navn deretter endres for å passe i den aktuelle kliniske konteksten. For eksempel: "Templat-overskrift" endret til "Funn ved undersøkelse", "Anamnese", "Personopplysninger" eller "Oppsummering".</use>
-      <misuse>Skal ikke stå med uendret navn i en templat.</misuse>
-      <copyright />
-    </details>
-    <details>
-      <language>
-        <terminology_id>
-          <value>ISO_639-1</value>
-        </terminology_id>
-        <code_string>pt-br</code_string>
-      </language>
-      <purpose>Oferecer um cabeçalho de uma sessão genérica que será renomeado no template para adequar-se a um contexto clínico específico.</purpose>
-      <keywords>cabeçalho</keywords>
-      <use>Utilize para construir um cabeçalho de uma sessão (de um template) que será renomeada para adequar-se a um contexto clínico específico. Por exemplo: "cabeçalho Ad hoc" renomeado para "Achados de exame".</use>
-      <misuse>Não deve manter a configuração original no template.</misuse>
-      <copyright />
-    </details>
-    <details>
-      <language>
-        <terminology_id>
-          <value>ISO_639-1</value>
-        </terminology_id>
-        <code_string>sl</code_string>
-      </language>
-      <purpose>*To provide a generic section header which will be renamed in a template to suit a specific clinical context.(en)</purpose>
-      <use>*Use to construct a section heading in a template that will be renamed to suit the specific clinical context. For example: "Ad hoc heading" renamed to "Examination findings".(en)</use>
-      <misuse>*Not to be left unchanged in a template.(en)</misuse>
-      <copyright>© openEHR Foundation</copyright>
-    </details>
+    <other_details id="MD5-CAM-1.0.1">9347FA06C93D9FB6CC855FB2DA989C18</other_details>
+    <other_details id="build_uid">57f8e9ea-0f34-4cc4-a99b-e57d4a1c6f32</other_details>
+    <other_details id="revision">0.0.1-alpha</other_details>
     <details>
       <language>
         <terminology_id>
@@ -154,96 +25,22 @@
         </terminology_id>
         <code_string>en</code_string>
       </language>
-      <purpose>To provide a generic section header which will be renamed in a template to suit a specific clinical context.</purpose>
-      <use>Use to construct a section heading in a template that will be renamed to suit the specific clinical context. For example: "Ad hoc heading" renamed to "Examination findings".</use>
-      <misuse>Not to be left unchanged in a template.</misuse>
+      <purpose>__unknown__</purpose>
+      <use>blah blah</use>
+      <misuse />
       <copyright>© openEHR Foundation</copyright>
     </details>
   </description>
-  <translations>
-    <language>
-      <terminology_id>
-        <value>ISO_639-1</value>
-      </terminology_id>
-      <code_string>de</code_string>
-    </language>
-    <author id="name">Ramona Wellmann</author>
-    <author id="organisation">Medizinische Hochschule Hannover</author>
-    <author id="email">wellmann.ramona@mh-hannover.de</author>
-  </translations>
-  <translations>
-    <language>
-      <terminology_id>
-        <value>ISO_639-1</value>
-      </terminology_id>
-      <code_string>ru</code_string>
-    </language>
-    <author id="name">Art Latyp Латыпов Артур Шамилевич</author>
-    <author id="organisation">RusBITech РусБИТех, Москва</author>
-  </translations>
-  <translations>
-    <language>
-      <terminology_id>
-        <value>ISO_639-1</value>
-      </terminology_id>
-      <code_string>sv</code_string>
-    </language>
-    <author id="name">Daniel Hall</author>
-    <author id="organisation">Region Östergötland</author>
-    <author id="email">daniel.hall@regionostergotland.se</author>
-    <accreditation>Åsa Skagerhult, Lisa Axelsson</accreditation>
-  </translations>
-  <translations>
-    <language>
-      <terminology_id>
-        <value>ISO_639-1</value>
-      </terminology_id>
-      <code_string>es-ar</code_string>
-    </language>
-    <author id="name">Alan March</author>
-    <author id="organisation">Hospital Universitario Austral, Buenos Aires, Argentina</author>
-  </translations>
-  <translations>
-    <language>
-      <terminology_id>
-        <value>ISO_639-1</value>
-      </terminology_id>
-      <code_string>nb</code_string>
-    </language>
-    <author id="einar.fosse@unn.no">einar.fosse@unn.no</author>
-    <author id="name">Einar Fosse</author>
-    <author id="organisation">Norwegian Centre for Integrated Care and Telemedicine, Tromsø, Norway</author>
-  </translations>
-  <translations>
-    <language>
-      <terminology_id>
-        <value>ISO_639-1</value>
-      </terminology_id>
-      <code_string>pt-br</code_string>
-    </language>
-    <author id="name">Vladimir Pizzo</author>
-    <author id="organisation">Hospital Sírio Libanês, São Paulo, Brazil</author>
-    <author id="email">vladimir.pizzo@hsl.org.br</author>
-  </translations>
-  <translations>
-    <language>
-      <terminology_id>
-        <value>ISO_639-1</value>
-      </terminology_id>
-      <code_string>sl</code_string>
-    </language>
-    <author id="name">?</author>
-  </translations>
   <uid>
-    <value>a82233b9-7f2d-4dd5-8db4-37f6963cfd8c</value>
+    <value>300195a1-9ade-4839-b9d0-11e0613f35cf</value>
   </uid>
   <archetype_id>
-    <value>openEHR-EHR-SECTION.adhoc.v1</value>
+    <value>openEHR-EHR-EVALUATION.alcohol_test-birth_weight.v0</value>
   </archetype_id>
   <adl_version>1.4</adl_version>
   <concept>at0000</concept>
   <definition>
-    <rm_type_name>SECTION</rm_type_name>
+    <rm_type_name>EVALUATION</rm_type_name>
     <occurrences>
       <lower_included>true</lower_included>
       <upper_included>true</upper_included>
@@ -253,54 +50,506 @@
       <upper>1</upper>
     </occurrences>
     <node_id>at0000</node_id>
+    <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+      <rm_attribute_name>data</rm_attribute_name>
+      <existence>
+        <lower_included>true</lower_included>
+        <upper_included>true</upper_included>
+        <lower_unbounded>false</lower_unbounded>
+        <upper_unbounded>false</upper_unbounded>
+        <lower>1</lower>
+        <upper>1</upper>
+      </existence>
+      <children xsi:type="C_COMPLEX_OBJECT">
+        <rm_type_name>ITEM_TREE</rm_type_name>
+        <occurrences>
+          <lower_included>true</lower_included>
+          <upper_included>true</upper_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>false</upper_unbounded>
+          <lower>1</lower>
+          <upper>1</upper>
+        </occurrences>
+        <node_id>at0001</node_id>
+        <attributes xsi:type="C_MULTIPLE_ATTRIBUTE">
+          <rm_attribute_name>items</rm_attribute_name>
+          <existence>
+            <lower_included>true</lower_included>
+            <upper_included>true</upper_included>
+            <lower_unbounded>false</lower_unbounded>
+            <upper_unbounded>false</upper_unbounded>
+            <lower>1</lower>
+            <upper>1</upper>
+          </existence>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0002</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>DV_CODED_TEXT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+                <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                  <rm_attribute_name>defining_code</rm_attribute_name>
+                  <existence>
+                    <lower_included>true</lower_included>
+                    <upper_included>true</upper_included>
+                    <lower_unbounded>false</lower_unbounded>
+                    <upper_unbounded>false</upper_unbounded>
+                    <lower>1</lower>
+                    <upper>1</upper>
+                  </existence>
+                  <children xsi:type="C_CODE_PHRASE">
+                    <rm_type_name>CODE_PHRASE</rm_type_name>
+                    <occurrences>
+                      <lower_included>true</lower_included>
+                      <upper_included>true</upper_included>
+                      <lower_unbounded>false</lower_unbounded>
+                      <upper_unbounded>false</upper_unbounded>
+                      <lower>1</lower>
+                      <upper>1</upper>
+                    </occurrences>
+                    <node_id />
+                    <terminology_id>
+                      <value>local</value>
+                    </terminology_id>
+                    <code_list>at0003</code_list>
+                    <code_list>at0004</code_list>
+                  </children>
+                </attributes>
+              </children>
+            </attributes>
+          </children>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0005</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>DV_CODED_TEXT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+                <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                  <rm_attribute_name>defining_code</rm_attribute_name>
+                  <existence>
+                    <lower_included>true</lower_included>
+                    <upper_included>true</upper_included>
+                    <lower_unbounded>false</lower_unbounded>
+                    <upper_unbounded>false</upper_unbounded>
+                    <lower>1</lower>
+                    <upper>1</upper>
+                  </existence>
+                  <children xsi:type="C_CODE_PHRASE">
+                    <rm_type_name>CODE_PHRASE</rm_type_name>
+                    <occurrences>
+                      <lower_included>true</lower_included>
+                      <upper_included>true</upper_included>
+                      <lower_unbounded>false</lower_unbounded>
+                      <upper_unbounded>false</upper_unbounded>
+                      <lower>1</lower>
+                      <upper>1</upper>
+                    </occurrences>
+                    <node_id />
+                    <terminology_id>
+                      <value>local</value>
+                    </terminology_id>
+                    <code_list>at0006</code_list>
+                    <code_list>at0007</code_list>
+                    <code_list>at0008</code_list>
+                  </children>
+                </attributes>
+              </children>
+            </attributes>
+          </children>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0009</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>DV_DURATION</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+              </children>
+            </attributes>
+          </children>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0010</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>DV_CODED_TEXT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+                <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                  <rm_attribute_name>defining_code</rm_attribute_name>
+                  <existence>
+                    <lower_included>true</lower_included>
+                    <upper_included>true</upper_included>
+                    <lower_unbounded>false</lower_unbounded>
+                    <upper_unbounded>false</upper_unbounded>
+                    <lower>1</lower>
+                    <upper>1</upper>
+                  </existence>
+                  <children xsi:type="C_CODE_PHRASE">
+                    <rm_type_name>CODE_PHRASE</rm_type_name>
+                    <occurrences>
+                      <lower_included>true</lower_included>
+                      <upper_included>true</upper_included>
+                      <lower_unbounded>false</lower_unbounded>
+                      <upper_unbounded>false</upper_unbounded>
+                      <lower>1</lower>
+                      <upper>1</upper>
+                    </occurrences>
+                    <node_id />
+                    <terminology_id>
+                      <value>local</value>
+                    </terminology_id>
+                    <code_list>at0011</code_list>
+                    <code_list>at0012</code_list>
+                    <code_list>at0013</code_list>
+                  </children>
+                </attributes>
+              </children>
+            </attributes>
+          </children>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0014</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>DV_CODED_TEXT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+                <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                  <rm_attribute_name>defining_code</rm_attribute_name>
+                  <existence>
+                    <lower_included>true</lower_included>
+                    <upper_included>true</upper_included>
+                    <lower_unbounded>false</lower_unbounded>
+                    <upper_unbounded>false</upper_unbounded>
+                    <lower>1</lower>
+                    <upper>1</upper>
+                  </existence>
+                  <children xsi:type="C_CODE_PHRASE">
+                    <rm_type_name>CODE_PHRASE</rm_type_name>
+                    <occurrences>
+                      <lower_included>true</lower_included>
+                      <upper_included>true</upper_included>
+                      <lower_unbounded>false</lower_unbounded>
+                      <upper_unbounded>false</upper_unbounded>
+                      <lower>1</lower>
+                      <upper>1</upper>
+                    </occurrences>
+                    <node_id />
+                    <terminology_id>
+                      <value>local</value>
+                    </terminology_id>
+                    <code_list>at0015</code_list>
+                    <code_list>at0016</code_list>
+                    <code_list>at0017</code_list>
+                    <code_list>at0018</code_list>
+                  </children>
+                </attributes>
+              </children>
+            </attributes>
+          </children>
+          <cardinality>
+            <is_ordered>false</is_ordered>
+            <is_unique>false</is_unique>
+            <interval>
+              <lower_included>true</lower_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>true</upper_unbounded>
+              <lower>0</lower>
+            </interval>
+          </cardinality>
+        </attributes>
+      </children>
+    </attributes>
+    <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+      <rm_attribute_name>protocol</rm_attribute_name>
+      <existence>
+        <lower_included>true</lower_included>
+        <upper_included>true</upper_included>
+        <lower_unbounded>false</lower_unbounded>
+        <upper_unbounded>false</upper_unbounded>
+        <lower>1</lower>
+        <upper>1</upper>
+      </existence>
+      <children xsi:type="C_COMPLEX_OBJECT">
+        <rm_type_name>ITEM_TREE</rm_type_name>
+        <occurrences>
+          <lower_included>true</lower_included>
+          <upper_included>true</upper_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>false</upper_unbounded>
+          <lower>1</lower>
+          <upper>1</upper>
+        </occurrences>
+        <node_id>at0019</node_id>
+        <attributes xsi:type="C_MULTIPLE_ATTRIBUTE">
+          <rm_attribute_name>items</rm_attribute_name>
+          <existence>
+            <lower_included>true</lower_included>
+            <upper_included>true</upper_included>
+            <lower_unbounded>false</lower_unbounded>
+            <upper_unbounded>false</upper_unbounded>
+            <lower>1</lower>
+            <upper>1</upper>
+          </existence>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0020</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>DV_DATE_TIME</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+              </children>
+            </attributes>
+          </children>
+          <cardinality>
+            <is_ordered>false</is_ordered>
+            <is_unique>false</is_unique>
+            <interval>
+              <lower_included>true</lower_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>true</upper_unbounded>
+              <lower>0</lower>
+            </interval>
+          </cardinality>
+        </attributes>
+      </children>
+    </attributes>
   </definition>
   <ontology>
     <term_definitions language="en">
       <items code="at0000">
-        <items id="text">Ad hoc heading</items>
-        <items id="description">A generic section header which should be renamed in a template to suit a specific clinical context.</items>
+        <items id="text">Alcohol test</items>
+        <items id="description">alcohol_test</items>
       </items>
-    </term_definitions>
-    <term_definitions language="ru">
-      <items code="at0000">
-        <items id="text">заготовка заголовка</items>
-        <items id="description">Образец заголовка раздела</items>
+      <items code="at0001">
+        <items id="text">Item tree</items>
+        <items id="description">@ internal @</items>
       </items>
-    </term_definitions>
-    <term_definitions language="es-ar">
-      <items code="at0000">
-        <items id="text">Encabezado ad hoc</items>
-        <items id="description">Un encabezado de sección de tipo genérico que será renombrado en una plantilla para su empleo en un contexto clínico específico.</items>
+      <items code="at0002">
+        <items id="text">Do you drink?</items>
+        <items id="description">*</items>
       </items>
-    </term_definitions>
-    <term_definitions language="sl">
-      <items code="at0000">
-        <items id="text">Naslov sekcije</items>
-        <items id="description">Naslov sekcije</items>
+      <items code="at0003">
+        <items id="text">Yes</items>
+        <items id="description">*</items>
       </items>
-    </term_definitions>
-    <term_definitions language="nb">
-      <items code="at0000">
-        <items id="text">Templat-overskrift</items>
-        <items id="description">En generisk seksjonsoverskrift som skal gis nytt navn i en templat for å passe i en gitt klinisk kontekst.</items>
+      <items code="at0004">
+        <items id="text">No</items>
+        <items id="description">*</items>
       </items>
-    </term_definitions>
-    <term_definitions language="pt-br">
-      <items code="at0000">
-        <items id="text">Cabeçalho Ad hoc</items>
-        <items id="description">Um cabeçalho de sessão genérico que deve ser renomeado no template para adequar-se a um contexto clínico específico.</items>
+      <items code="at0005">
+        <items id="text">Type of alcohol</items>
+        <items id="description">*</items>
       </items>
-    </term_definitions>
-    <term_definitions language="sv">
-      <items code="at0000">
-        <items id="text">Rubrik</items>
-        <items id="description">En allmän avsnittsrubrik som döps om i en openEHR-mall för att passa in i en specifik klinisk kontext.</items>
+      <items code="at0006">
+        <items id="text">Beer</items>
+        <items id="description">*</items>
       </items>
-    </term_definitions>
-    <term_definitions language="de">
-      <items code="at0000">
-        <items id="text">Ad hoc Überschrift</items>
-        <items id="description">Eine generische Abschnittsüberschrift eines Templates, welche entsprechend dem spezifischen klinischen Kontext umbenannt werden sollte.</items>
+      <items code="at0007">
+        <items id="text">Wine</items>
+        <items id="description">*</items>
+      </items>
+      <items code="at0008">
+        <items id="text">Spirits</items>
+        <items id="description">*</items>
+      </items>
+      <items code="at0009">
+        <items id="text">Duration of drinking</items>
+        <items id="description">The length of time the patient has been drinking</items>
+      </items>
+      <items code="at0010">
+        <items id="text">Contenxt</items>
+        <items id="description">*</items>
+      </items>
+      <items code="at0011">
+        <items id="text">Social</items>
+        <items id="description">*</items>
+      </items>
+      <items code="at0012">
+        <items id="text">Alone</items>
+        <items id="description">*</items>
+      </items>
+      <items code="at0013">
+        <items id="text">Occasional</items>
+        <items id="description">*</items>
+      </items>
+      <items code="at0014">
+        <items id="text">Frequency</items>
+        <items id="description">*</items>
+      </items>
+      <items code="at0015">
+        <items id="text">Once a day</items>
+        <items id="description">*</items>
+      </items>
+      <items code="at0016">
+        <items id="text">Once a week</items>
+        <items id="description">*</items>
+      </items>
+      <items code="at0017">
+        <items id="text">Weekends</items>
+        <items id="description">*</items>
+      </items>
+      <items code="at0018">
+        <items id="text">With/without dinner</items>
+        <items id="description">*</items>
+      </items>
+      <items code="at0019">
+        <items id="text">Item tree</items>
+        <items id="description">@ internal @</items>
+      </items>
+      <items code="at0020">
+        <items id="text">Date last updated</items>
+        <items id="description">The date when the alcohol consumption record was last updated.</items>
       </items>
     </term_definitions>
   </ontology>
