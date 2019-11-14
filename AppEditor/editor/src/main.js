@@ -11,9 +11,7 @@ import VueAxios from 'vue-axios'
 import VueDND from 'awe-dnd'
 import VueDragSelector from "vue-drag-selector";
 import JSONView from "vue-json-component";
-import VueNestable from 'vue-nestable'
-
-
+import VueNestable from 'vue-nestable';
 
 Vue.config.productionTip = false
 Vue.use(VueRouter,VueAxios, axios,JSONView,VueNestable, VueDraggable,VueDND,VueDragSelector);

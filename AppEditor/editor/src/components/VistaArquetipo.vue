@@ -53,59 +53,26 @@
                             Árbol de Arquetipo
                         </div>
                         <div class="card body">
-                            <div class="container">
-                                <ul id="menu"
-                                style=" #menu * { list-style:none;}
-                                        #menu li{ line-height:180%;}
-                                        #menu li a{color:#222; text-decoration:none;}
-                                        #menu li a:before{ content:'\025b8'; color:#ddd; margin-right:4px;}
-                                        #menu input[name='list'] {
-                                            position: absolute;
-                                            left: -1000em;
-                                            }
-                                        #menu label:before{ content:'\025b8'; margin-right:4px;}
-                                        #menu input:checked ~ label:before{ content:'\025be';}
-                                        #menu .interior{display: none;}
-                                        #menu input:checked ~ ul{display:block;}">
-                                    <li><input type="checkbox" name="list" id="nivel1-1"><label for="nivel1-1">Nivel 1</label>
-                                    <ul class="interior">
-                                            <li><input type="checkbox" name="list" id="nivel2-1"><label for="nivel2-1">Nivel 2</label>
-                                            <ul class="interior">
-                                                <li><a href="#r">Nivel 3</a></li>
-                                                <li><a href="#r">Nivel 3</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><input type="checkbox" name="list" id="nivel2-2"><label for="nivel2-2">Nivel 2</label>
-                                            <ul class="interior">
-                                                <li><a href="#r">Nivel 3</a></li>
-                                                <li><a href="#r">Nivel 3</a></li>
-                                                <li><a href="#r">Nivel 3</a></li>
-                                                <li><a href="#r">Nivel 3</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#r">Nivel 2</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><input type="checkbox" name="list" id="nivel1-2" checked=""><label for="nivel1-2">Nivel 1</label>
-                                        <ul class="interior">
-                                            <li><a href="#r">Nivel 2</a></li>
-                                            <li><input type="checkbox" name="list" id="nivel2-3"><label for="nivel2-3">Nivel 2</label>
-                                            <ul class="interior">
-                                                <li><a href="#r">Nivel 3</a></li>
-                                                <li><a href="#r">Nivel 3</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><input type="checkbox" name="list" id="nivel2-4"><label for="nivel2-4">Nivel 2</label>
-                                            <ul class="interior">
-                                                <li><a href="#r">Nivel 3</a></li>
-                                                <li><a href="#r">Nivel 3</a></li>
-                                                <li><a href="#r">Nivel 3</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#r">Nivel 1</a></li>
-                                    </ul>
+                            <div>
+                                <button @click="addNode">Add Node</button>
+                                <vue-tree-list
+                                @click="onClick"
+                                @change-name="onChangeName"
+                                @delete-node="onDel"
+                                @add-node="onAddNode"
+                                :model="data"
+                                default-tree-node-name="new node"
+                                default-leaf-node-name="new leaf"
+                                v-bind:default-expanded="false">
+                                <span class="icon" slot="addTreeNode">addTreeNode</span>
+                                <span class="icon" slot="addLeafNode">addLeafNode</span>
+                                <span class="icon" slot="editNode">editNode</span>
+                                <span class="icon" slot="delNode">delNode</span>
+                                </vue-tree-list>
+                                <button @click="getNewTree">Get new tree</button>
+                                <pre>
+                                {{newTree}}
+                                </pre>
                             </div>
                         </div>
                     </div>
@@ -115,6 +82,8 @@
     </div>
 </template>
 <script>
+import { VueTreeList, Tree, TreeNode } from 'vue-tree-list';
+
 class Arquetipo {
     constructor(organizacion, modelo, clase, concepto, subconcepto, version, data) {
         this.organizacion = organizacion;
@@ -127,12 +96,48 @@ class Arquetipo {
     }
 }
 export default {
+    components: {
+        VueTreeList
+    },
+
     data() {
         return {
             arquetipo: new Arquetipo(),
             arquetipos: [], // se llena con datos de nuevo arquetipo
             aArquetipos: [],
-            clase: ''
+            clase: '',
+            newTree: {},
+            data: new Tree([
+            {
+                name: 'Node 1',
+                id: 1,
+                pid: 0,
+                dragDisabled: true,
+                addTreeNodeDisabled: true,
+                addLeafNodeDisabled: true,
+                editNodeDisabled: true,
+                delNodeDisabled: true,
+                children: [
+                {
+                    name: 'Node 1-2',
+                    id: 2,
+                    isLeaf: true,
+                    pid: 1
+                }
+                ]
+            },
+            {
+                name: 'Node 2',
+                id: 3,
+                pid: 0,
+                disabled: true
+            },
+            {
+                name: 'Node 3',
+                id: 4,
+                pid: 0
+            }
+            ])
         }
     },
 
@@ -171,8 +176,56 @@ export default {
             });
         },
 
-        verArquetipo(id) {
-            
+        verArquetipo() {
+            //console.log('hola');
+            var dato = document.getElementById('tree');
+            dato.mdbTreeView();
+        },
+
+        onDel (node) {
+            console.log(node)
+            node.remove()
+        },
+    
+        onChangeName (params) {
+            console.log(params)
+        },
+    
+        onAddNode (params) {
+            console.log(params)
+        },
+    
+        onClick (params) {
+            console.log(params)
+        },
+    
+        addNode () {
+            var node = new TreeNode({ name: 'new node', isLeaf: false })
+            if (!this.data.children) this.data.children = []
+            this.data.addChildren(node)
+        },
+    
+        getNewTree () {
+            var vm = this
+            function _dfs (oldNode) {
+            var newNode = {}
+    
+            for (var k in oldNode) {
+                if (k !== 'children' && k !== 'parent') {
+                newNode[k] = oldNode[k]
+                }
+            }
+    
+            if (oldNode.children && oldNode.children.length > 0) {
+                newNode.children = []
+                for (var i = 0, len = oldNode.children.length; i < len; i++) {
+                newNode.children.push(_dfs(oldNode.children[i]))
+                }
+            }
+            return newNode
+            }
+    
+            vm.newTree = _dfs(vm.data)
         }
     }
 }
