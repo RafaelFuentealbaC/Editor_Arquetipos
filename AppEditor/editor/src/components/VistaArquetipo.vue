@@ -6,20 +6,22 @@
                     <div class="card">
                         <div class="card-header">
                             Buscar Arquetipos Registrados:
+                            <button class="mdi mdi-window-minimize" style="padding-left:250px;" @click="ocultarBuscador"></button>
+                            <button class="mdi mdi-window-maximize" style="padding-left:5px;" @click="mostrarBuscador"></button>
                         </div>
-                        <div class="card body">
+                        <div class="card body" id="buscador">
                             <div class="container">
                                 <div class="col-md-5">
-                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" v-on:change="obtenerClase">
-                                    <option selected>Seleccionar Clase</option>
-                                    <option value="CLUSTER">CLUSTER</option>
-                                    <option value="COMPOSITION">COMPOSITION</option>
-                                    <option value="ELEMENT">ELEMENT</option>
-                                    <option value="ENTRY">ENTRY</option>
-                                    <option value="EVALUATION">EVALUATION</option>
-                                    <option value="FOLDER">FOLDER</option>
-                                    <option value="SECTION">SECTION</option>
-                                </select>
+                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" v-on:change="obtenerClase">
+                                        <option selected>Seleccionar Clase</option>
+                                        <option value="CLUSTER">CLUSTER</option>
+                                        <option value="COMPOSITION">COMPOSITION</option>
+                                        <option value="ELEMENT">ELEMENT</option>
+                                        <option value="ENTRY">ENTRY</option>
+                                        <option value="EVALUATION">EVALUATION</option>
+                                        <option value="FOLDER">FOLDER</option>
+                                        <option value="SECTION">SECTION</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="container">
@@ -44,17 +46,18 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>   
                 </div>
+            </div>
 
-                <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-3" v-if="this.vistaarbol===true">
                     <div class="card">
                         <div class="card-header">
                             Árbol de Arquetipo
                         </div>
                         <div class="card body">
-                            <div>
-                                <button @click="addNode">Add Node</button>
+                            <div class="container">
                                 <vue-tree-list
                                 @click="onClick"
                                 @change-name="onChangeName"
@@ -71,7 +74,7 @@
                                 </vue-tree-list>
                                 <button @click="getNewTree">Get new tree</button>
                                 <pre>
-                                {{newTree}}
+                                    {{newTree}}
                                 </pre>
                             </div>
                         </div>
@@ -82,6 +85,7 @@
     </div>
 </template>
 <script>
+import BuscarArquetipo from '../components/BuscarArquetipo';
 import { VueTreeList, Tree, TreeNode } from 'vue-tree-list';
 
 class Arquetipo {
@@ -95,7 +99,10 @@ class Arquetipo {
         this.data = data;
     }
 }
+
 export default {
+    name: 'VistaArquetipo',
+    
     components: {
         VueTreeList
     },
@@ -106,46 +113,21 @@ export default {
             arquetipos: [], // se llena con datos de nuevo arquetipo
             aArquetipos: [],
             clase: '',
+            idArquetipo: '',
+            nodos: [],
+            vistaarbol: false,
             newTree: {},
-            data: new Tree([
-            {
-                name: 'Node 1',
-                id: 1,
-                pid: 0,
-                dragDisabled: true,
-                addTreeNodeDisabled: true,
-                addLeafNodeDisabled: true,
-                editNodeDisabled: true,
-                delNodeDisabled: true,
-                children: [
-                {
-                    name: 'Node 1-2',
-                    id: 2,
-                    isLeaf: true,
-                    pid: 1
-                }
-                ]
-            },
-            {
-                name: 'Node 2',
-                id: 3,
-                pid: 0,
-                disabled: true
-            },
-            {
-                name: 'Node 3',
-                id: 4,
-                pid: 0
-            }
+            data: new Tree([    
             ])
-        }
+        };
     },
-
+    
     methods: {
         obtenerClase: function(e) {
             this.clase = e.target.value;
             while(this.aArquetipos.length>0) this.aArquetipos.pop();
             this.obtenerArquetipos();      
+            this.vistaarbol = false;
         },
 
         obtenerArquetipos() {
@@ -175,11 +157,112 @@ export default {
                     }
             });
         },
+        
+        verArquetipo(id) {
+            this.idArquetipo = id;
+            this.mostrarArbol(this.idArquetipo);
+        },
 
-        verArquetipo() {
-            //console.log('hola');
-            var dato = document.getElementById('tree');
-            dato.mdbTreeView();
+        mostrarArbol(id) {
+            fetch('http://localhost:3000/api/arquetipos/'+id)
+                .then(res => res.json())
+                .then(data => {
+                    this.arquetipo = new Arquetipo(data.organizacion, data.modelo, data.clase, data.concepto, data.subconcepto, data.version, data.data)
+                })
+            
+            var datos = this.arquetipo.data // data del arquetipo
+            var miArquetipo = JSON.parse(datos) // arquetipo como objeto
+            var id = miArquetipo['archetype']['archetype_id'].value
+            //console.log(id)
+
+            if(miArquetipo!=null) {
+                var nodoPadre = miArquetipo['archetype'];
+                this.construyeNodos(nodoPadre);
+            }
+            this.vistaarbol = true
+        },
+
+        construyeNodos(nodoRaiz) {
+            //  Nivel 0
+            this.nodos.push({
+                key: 'archetype',
+                value: Object.keys(nodoRaiz),
+                level: 0,
+                father: 'object'
+            });
+            
+            // Primer nivel
+            this.nodos.push({
+                key: Object.keys(nodoRaiz),
+                value: Object.values(nodoRaiz),
+                level: 1,
+                father: 'archetype'
+            });
+            
+            var ultimo = 0;
+            for(var x=0; x<this.nodos.length; x++) {
+                ultimo = this.nodos[x].level;
+            }
+
+            var nivel = new Array();
+            for(var n=0; n<20; n++) {
+                for(var aux in this.nodos) {
+                    if(this.nodos[aux].level==ultimo) {
+                        nivel.push(aux);
+                    }
+                }
+
+                for(var x in nivel) {
+                    if(this.nodos[nivel[x]].level==ultimo) {
+                        var nuevoNodo = this.nodos[nivel[x]].value;
+                        var nodoPadre = this.nodos[nivel[x]].key;
+                        for(var x=0; x<nuevoNodo.length; x++) {
+                            if(typeof nuevoNodo[x] == 'object') {
+                                this.nodos.push({
+                                    key: Object.keys(nuevoNodo[x]),
+                                    value: Object.values(nuevoNodo[x]),
+                                    level: ultimo+1,
+                                    father: nodoPadre[x]
+                                });
+                            }
+                        }
+                    }
+                }
+                ultimo++;
+                while(nivel.length>0) {
+                    nivel.pop();
+                }
+            }
+            
+            for(var aux in this.nodos) {
+                nivel.push(this.nodos[aux].level);
+                var node = new TreeNode({ name: this.nodos[aux].key, isLeaf: false });
+                if (!this.data.children) this.data.children = [];
+                this.data.addChildren(node);
+            }
+
+            for(var aux in nivel) {
+                var nodoPadre = this.nodos[aux].father;
+                var subnivel = new Array();
+                subnivel.push(nivel[aux]);
+                
+                for(var x in subnivel) {
+                    var nodoPadre;
+                    if(nivel[aux]===subnivel[x]) {
+                        nodoPadre = this.nodos[aux].father;
+                    }
+                }
+            }
+        },
+
+        ocultarBuscador() {
+            var buscador = document.getElementById('buscador');
+            buscador.style.display = 'none';            
+        },
+
+        mostrarBuscador() {
+            var buscador = document.getElementById('buscador');
+            buscador.style.display = 'block';            
         },
 
         onDel (node) {
@@ -226,7 +309,13 @@ export default {
             }
     
             vm.newTree = _dfs(vm.data)
+        },
+
+        verArbol() {
+            this.idArquetipo = this.lista[this.lista.length-1];
+            console.log(this.idArquetipo);
         }
     }
 }
+
 </script>

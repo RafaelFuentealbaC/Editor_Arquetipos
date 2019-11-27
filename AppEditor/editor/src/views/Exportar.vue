@@ -1,11 +1,13 @@
 <template>
-    <div class="exportar">
-        <h1>Exportar arquetipo</h1>
-    </div>
+    <ExportarArquetipo />
 </template>
 
 <script>
+import ExportarArquetipo from '../components/ExportarArquetipo';
+
 export default {
-    
+    components: {
+        ExportarArquetipo
+    }
 }
 </script>
