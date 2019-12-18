@@ -44,3 +44,15 @@ Ya que esta aplicación ha sido construida mediante el uso de vuejs y electron p
 3. Levantar la aplicación con electron --> npm run electron:serve
 4. Construir la aplicación con electron --> npm run electron:build
 Este último comando genera un empaquetamiento de la aplicación con la finalidad de generar un paquete instalable en sistemas como Windows y Linux.
+
+Es importante mencionar que en ambas partes de la aplicación final, es decir, tanto en el backend como en el editor, es posible que de algunos errores cuando estas se intenten ejecutar por primera vez. Esto se debe a que necesita de los módulos de node de los cuales la aplicación hace uso. Para instalar estos módulos se debe digitar lo siguiente dentro de la terminal de VSCodium o Visual Studio Code o cualquier otro editor:
+
+Caso del servidor
+1. cd backend/
+2. npm install
+
+Caso del cliente
+1. cd editor/
+2. npm install
+
+Importante: Si algunos módulos no se cargan de forma automática, se deben instalar manualmente.
