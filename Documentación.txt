@@ -1,0 +1,46 @@
+				PROYECTO: EDITOR DE ARQUETIPOS
+
+Para llevar a cabo la construcción de este proyecto bajo las diferentes condiciones impuestas, se ha hecho necesario trabajar bajo una idea de funcionamiento cliente servidor, donde por un lado existe un backend que recibe peticiones y entrega resultados ante las solicitudes de una aplicación cliente y, por otro lado, un frontend donde el usuario interactúa directamente con la aplicación final.
+
+Bajo esta idea de funcionamiento, en términos técnicos se han elaborado dos directorios de trabajo:
+1. backend --> es un servidor implementado con nodejs y express que permite la conexión, construcción y la interacción con la base de datos mongodb. En él se podrán encontrar los diferentes métodos de los cuales el usuario puede hacer uso indirectamente desde la aplicación editor.
+2. editor --> es una aplicación implementada bajo las tecnologías vuejs, electron, y bootstrap donde se presenta la interfaz de usuario y las diferentes acciones a las cuales este último tiene acceso. Esta aplicación interactúa directamente con el backend.
+
+Es importante mencionar que para efecto del correcto funcionamiento de ambas aplicaciones diseñadas es necesario contar con el uso de nodejs, que en definitiva permitirá instalar, corregir o desintalar los diferentes módulos, librerías o paqutes de las cuales dichas aplicaciones consumen en su desarrollo.
+
+
+A continuación se describe la forma en que trabaja cada uno de los directorios antes mencionados, comenzando por el backend.
+
+	BACKEND
+Dentro de backend el directorio donde se maneja todo es "src". En "src" tendremos 4 archivos y 3 subdirectorios:
+- Directorio "models": en este directorio encontramos un archivo llamado "arquetipo.js", el cual básicamente hace uso del módulo mongoose para manejar el acceso a la base de datos de mongodb y así poder definir la estructura de la tabla "arquetipos", esencial para manejar los datos que se trabajan desde la aplicación del editor.
+- Directorio "routes": en él se encuentra el archivo llamado "arquetipos.js" donde se definen los método get, post, put, delete de las diferentes rutas que se tienen acceso desde la aplicación del editor, los cuales trabajan con la estructura de la tabla de arquetipos definida en el modelo.
+- Archivo "database.js": este hace uso del módulo mongoose para definir la conexión hacia la base de datos de mongodb con la cual se realizan las interacciones.
+- Archivo "index.js": en él se definen las condiciones y módulos del servidor de express, donde se especifica el puerto a través del cual recibe peticiones y devuelve respuestas, así como también hace efectiva la conexión con mongodb, y a su vez hace efectiva y válidas las rutas que se definen en el archivo "arquetipos.js".
+- Archivo "tmp.json": es un fichero de uso temporal que almacena el contenido de un arquetipo proveniente en formato json.
+- Archivo "tmp.xml": es un fichero de uso temporan que almacena el contenido de un arquetipo proveniente en formato xml.
+
+
+	EDITOR
+Dentro del directorio "editor" encontraremos el subdirectorio "src" donde básicamente se maneja toda la aplicación. En él encontramos 4 subdirectorios y 5 archivos:
+- Directorio "components": en él es posible encontrar 8 archivos .vue, de los cuales 5 están funcionando totalmente ("BuscarArquetipo.vue", "CargarArquetipo.vue", "DescargarArquetipo.vue", "ExportarArquetipo.vue", "FormNuevo.vue"), 1 que no se ha completado su función, y 2 que no se utilizan en la aplicación.
+- Directorio "views": contiene cada una de las vistas que se generan en la aplicación principal, donde cada una de ellas hace uso de alguno de los compontentes anteriormente mencionados.
+- Archivo "App.vue": es la vista principal de la aplicación que carga el menú de opciones.
+- Archivo "main.js": en él se indican cada uno de los componentes o librerías instalables mediante "npm" y de las cuales se hacen uso en la aplicación.
+- Archivo "router.js": indica las rutas hacia donde la aplicación se dirige a buscar las respectivas vistas y componentes para cargarlas en la interfaz de usuario.
+
+
+A continuación se detalla el funcionamiento técnico de ambas partes de la aplicación:
+
+	BACKEND
+Al estar construida haciendo uso de nodemon para evitar constantemente reiniciar el servidor al sobreescribir cambios, la forma de ejecutar y poner en funcionamiento el backend es:
+1. Acceder a su directorio --> cd backend/
+2. Levantar el servidor --> npm run dev
+
+	EDITOR
+Ya que esta aplicación ha sido construida mediante el uso de vuejs y electron para su versión standalone, existen dos formas de ejecutarla:
+1. Acceder a su directorio --> cd editor/
+2. Levantar la aplicación web --> npm run serve
+3. Levantar la aplicación con electron --> npm run electron:serve
+4. Construir la aplicación con electron --> npm run electron:build
+Este último comando genera un empaquetamiento de la aplicación con la finalidad de generar un paquete instalable en sistemas como Windows y Linux.
